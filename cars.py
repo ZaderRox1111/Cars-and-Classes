@@ -2,14 +2,14 @@ import turtle
 
 def main():
     car1 = Car('ewad', 10, 'green')
-    
+    car2 = Car('eijl', 10, 'purple')    
 
     done = False
     while done == False:
         inp = input()
-        car1.move(5, inp)
         if car1.move(5, inp) == False:
             done = True
+        car2.move(5, inp)
         
     turtle.exitonclick()
 
@@ -24,10 +24,6 @@ class Car:
         self.turt.color(self.color)
 
     def move(self, speed, inp):
-#        done = False
-#        while done == False:
-#            inp = input()
-
         for move in inp:
 
             if move == self.inputs[0]:
