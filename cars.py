@@ -1,6 +1,5 @@
 import turtle
 
-
 def main():
     harry = turtle.Turtle()
 
@@ -28,6 +27,41 @@ def main():
                     harry_dir = 360
                 harry.seth(harry_dir)
 
+class Car:
+    
+    def __init__(self, inputs, turn_amount):
+        self.inputs = inputs
+        self.turn_amount = turn_amount
 
-main()
+    def move(self, speed):
+        turt = turtle.Turtle()
+        
+        direction = 0
+        done = False
+        while done == False:
+            inp = input()
+
+            for move in inp:
+
+                if move == self.inputs[0]:
+                    done == True
+
+                if move == self.inputs[1]:
+                    turt.fd(speed)
+
+                if move == self.inputs[2]:
+                    direction += self.turn_amount
+                    if direction >= 360:
+                        direction = 0
+                    turt.seth(direction)
+
+                if move == self.inputs[3]:
+                    direction -= self.turn_amount
+                    if direction <= 0:
+                        direction = 360
+                    turt.seth(direction)
+
+
+car1 = Car("ewad", 10)
+car1.move(5)
 turtle.exitonclick()
